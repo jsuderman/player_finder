@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import HomeScreen from "./components/HomeScreen/HomeScreen";
 
 function App() {
   return (
     <div className="app">
-        <h1>player finder app</h1>
+        <HomeScreen /> 
     </div>
   );
 }
