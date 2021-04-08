@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import "./Hero.css";
+import axios from "../../axios";
+import requests from '../../Requests';
+
+
+
 
 function Hero() {
+
+    const [team, setTeam] = useState([]);
+
+    useEffect(() => {
+        async function fectchData() {
+            const request = await axios.get(requests.fetchTeams);
+            setTeam(request.data);
+                   
+            return request;
+        }
+        fectchData();
+    }, []);
+    console.log(team);
+
     return (
         <header 
             className="hero"
