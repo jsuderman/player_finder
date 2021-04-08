@@ -23,15 +23,7 @@ function Row({ title, fetchUrl }) {
         <div className="row">
             <h2>{title}</h2>
 
-            <div className="row__logo">
-                {teams.map(team => (
-                    <img 
-                    src={team.WikipediaLogoUrl}
-                    alt={team.TeamID}
-                    key={team.key}
-                    />
-                ))}
-            </div>
+            
         </div>
     )
 }

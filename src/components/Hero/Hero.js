@@ -8,18 +8,18 @@ import requests from '../../Requests';
 
 function Hero() {
 
-    const [team, setTeam] = useState([]);
+    const [teams, setTeams] = useState([]);
 
     useEffect(() => {
         async function fectchData() {
             const request = await axios.get(requests.fetchTeams);
-            setTeam(request.data);
+            setTeams(request.data);
                    
             return request;
         }
         fectchData();
     }, []);
-    console.log(team);
+    console.log(teams);
 
     return (
         <header 
@@ -36,7 +36,16 @@ function Hero() {
                     <button className="hero__button">New Team</button>
                     <button className="hero__button">My Team</button>
                 </div>
-                <h1 className="hero__description">this is the test description</h1>
+                <div className="hero__logo">
+                {teams.map(team => (
+                    <img
+                    className="hero__teamLogo" 
+                    src={team.WikipediaLogoUrl}
+                    alt={team.TeamID}
+                    key={team.key}
+                    />
+                ))}
+            </div>
             </div>
         </header>
     )
