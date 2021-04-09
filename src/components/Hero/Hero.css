@@ -3,6 +3,7 @@
     position: relative;
     object-fit: contain;
     color: white;
+    width: 100%;
 }
 
 .hero__title {
@@ -49,10 +50,7 @@
 
 .hero__logo {
     display: flex;
-   
     padding: 2px;
-    
-   
     width: 100%;
     background-color: black;
     padding-top: 80px;
@@ -72,6 +70,7 @@
 .hero__teamLogo:hover {
     transform: scale(1.08);
     opacity: 1;
+    cursor: pointer;
 }
 
 .hero__logo::-webkit-scrollbar {
