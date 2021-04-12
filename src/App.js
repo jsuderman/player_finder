@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./App.css";
 import HomeScreen from "./components/HomeScreen/HomeScreen";
+import Profile from "./components/Profile/Profile";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import LoginScreen from "./components/LoginScreen/LoginScreen";
 import { auth } from "./firebase";
@@ -23,12 +24,12 @@ function App() {
           })
         );
       } else {
-        dispatch(logout);
+        dispatch(logout());
       }
     });
 
     return unsubscribe;
-  }, []);
+  }, [dispatch]);
   return (
     <div className="app">
       
@@ -37,9 +38,12 @@ function App() {
           <LoginScreen />
         ): (
           <Switch>
-          <Route exact path="/">
+            <Route path="/profile">
+              <Profile />
+            </Route>
+            <Route exact path="/">
             <HomeScreen />
-          </Route>
+            </Route>
           </Switch>
         )}
         
