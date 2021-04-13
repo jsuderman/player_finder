@@ -6,9 +6,10 @@ import requests from '../../Requests';
 
 
 
-function Hero() {
+function Hero({ TeamID }) {
 
     const [teams, setTeams] = useState([]);
+
 
     useEffect(() => {
         async function fectchData() {
@@ -19,6 +20,11 @@ function Hero() {
         }
         fectchData();
     }, []);
+    
+    const handleClick = (value) => {
+        console.log(value);
+    }
+
     console.log(teams);
 
     return (
@@ -39,6 +45,7 @@ function Hero() {
                 <div className="hero__logo">
                 {teams.map(team => (
                     <img
+                    onClick={() => handleClick({ team })}
                     className="hero__teamLogo" 
                     src={team.WikipediaLogoUrl}
                     alt={team.TeamID}

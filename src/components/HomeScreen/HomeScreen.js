@@ -11,8 +11,9 @@ function HomeScreen() {
             <Nav /> 
             <Hero />
             <Row 
-            title='Teams'
+            title='Players'
             fetchUrl={requests.fetchTeams}
+            // TeamID={TeamID}
             />
         </div>
     )

@@ -1,4 +1,4 @@
-.row__logo {
+.row__playerInfo {
     display: flex;
     overflow-y: hidden;
     overflow-x: scroll;
@@ -7,4 +7,15 @@
     object-fit: contain;
     width: 100%;
     background-color: black;
+    color: white;
+}
+
+.row__playerInfo > img {
+    height: 100px;
+}
+
+.row__playerInfo > h3 {
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 20px;
 }
