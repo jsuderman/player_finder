@@ -17,3 +17,4 @@ const auth = firebase.auth();
 
 export { auth };
 export default db;
+export { firebase };
