@@ -1,11 +1,9 @@
 import axios from "../../axios";
 import React, { useState, useEffect } from "react";
 import "./Row.css";
-import requests from "../../Requests";
 import { useSelector } from "react-redux";
 import { selectTeam } from "../../features/teamSlice";
 import { firebase } from "../../firebase";
-import db from "../../firebase";
 import { clickedPlayer } from "../../features/playerSlice";
 import { useDispatch } from "react-redux";
 
@@ -13,7 +11,7 @@ function Row() {
   const dispatch = useDispatch();
   const clickedTeam = useSelector(selectTeam);
   const [players, setPlayers] = useState([]);
-  const [addedPlayers, setAddedPlayers] = useState([]);
+  // const [addedPlayers, setAddedPlayers] = useState([]);
 
   const ref = firebase.firestore().collection("userTeam");
 
@@ -24,6 +22,12 @@ function Row() {
       })
     );
     console.log(value.player);
+    ref.add({
+      playerName: value.player.FanDuelName,
+      playerPhoto: value.player.PhotoUrl,
+      playerPosition: value.player.DepthChartPosition,
+      playerSalary: value.player.Salary,
+    })
   };
 
   useEffect(() => {
@@ -41,8 +45,8 @@ function Row() {
 
   useEffect(() => {
     getUserTeam();
-    console.log(addedPlayers);
-  }, []);
+
+  });
 
   // const addUserTeamPlayer = () => {
   //     ref.add({
