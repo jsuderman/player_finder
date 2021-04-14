@@ -27,6 +27,7 @@ function Row() {
       playerPhoto: value.player.PhotoUrl,
       playerPosition: value.player.DepthChartPosition,
       playerSalary: value.player.Salary,
+      playerID: value.player.PlayerID,
     })
   };
 
@@ -70,10 +71,10 @@ function Row() {
             alt={player.FantastyDraftName}
             key={player.PlayerID}
           />
-          <h3>{player.FanDuelName}</h3>
-          <h3>{player.DepthChartPosition}</h3>
-          <h3>{player.Salary}</h3>
-          <button onClick={() => handleClick({ player })}>Add</button>
+          <div className="row__playerName">{player.FanDuelName}</div>
+          <div className="row__playerPosition">{player.DepthChartPosition}</div>
+          <div className="row__playerSalary">{player.Salary}</div>
+          <button className="row__button" onClick={() => handleClick({ player })}>Add</button>
         </div>
       ))}
     </div>
