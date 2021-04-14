@@ -2,13 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./Hero.css";
 import axios from "../../axios";
 import requests from "../../Requests";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { clickedTeam } from "../../features/teamSlice";
 
 function Hero({ TeamID }) {
   const dispatch = useDispatch()
-  // const clickedTeam = useSelector(selectTeam);
-  
   const [teams, setTeams] = useState([]);
 
   useEffect(() => {

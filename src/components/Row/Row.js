@@ -2,21 +2,23 @@ import axios from '../../axios';
 import React, { useState, useEffect }from 'react';
 import "./Row.css";
 import requests from '../../Requests';
+import { useSelector } from 'react-redux';
+import { selectTeam } from '../../features/teamSlice';
 
-function Row({ title, fetchUrl }) {
-
+function Row() {
+    const clickedTeam = useSelector(selectTeam)
     const [players, setPlayers] = useState([]);
 
     useEffect(() => {
         async function fetchPlayers() {
-            const req = await axios.get(requests.fetchPlayers);
+            const req = await axios.get(`https://fly.sportsdata.io/v3/nba/stats/json/Players/${clickedTeam.Key.Key}?key=b7f466ebf369487fa904c3d202b049d1`);
             setPlayers(req.data);
 
             return req
         }
         fetchPlayers();
         
-    }, []);
+    }, [clickedTeam]);
     console.log(players)
 
     return (
