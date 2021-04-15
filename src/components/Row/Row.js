@@ -6,6 +6,7 @@ import { selectTeam } from "../../features/teamSlice";
 import { firebase } from "../../firebase";
 import { clickedPlayer } from "../../features/playerSlice";
 import { useDispatch } from "react-redux";
+// import { v4 as uuidv4 } from "uuid"; 
 
 function Row() {
   const dispatch = useDispatch();
@@ -15,6 +16,14 @@ function Row() {
 
   const ref = firebase.firestore().collection("userTeam");
 
+  const getUserTeam = () => {
+    ref.get().then((querySnapShot) => {
+      querySnapShot.forEach((doc) => {
+        // console.log(doc.id, " => ", doc.data());
+      });
+    });
+  };
+
   const handleClick = (value) => {
     dispatch(
       clickedPlayer({
@@ -22,13 +31,19 @@ function Row() {
       })
     );
     console.log(value.player);
+    
     ref.add({
       playerName: value.player.FanDuelName,
       playerPhoto: value.player.PhotoUrl,
       playerPosition: value.player.DepthChartPosition,
       playerSalary: value.player.Salary,
       playerID: value.player.PlayerID,
+    }).then((docRef) => {
+      console.log("doc wirttien with ID:", docRef.id)
+    }).catch((error) => {
+      console.error("error:", error);
     })
+    
   };
 
   useEffect(() => {
@@ -55,13 +70,7 @@ function Row() {
   //     })
   // }
 
-  const getUserTeam = () => {
-    ref.get().then((querySnapShot) => {
-      querySnapShot.forEach((doc) => {
-        console.log(doc.id, " => ", doc.data());
-      });
-    });
-  };
+  
   return (
     <div className="row">
       {players.map((player) => (

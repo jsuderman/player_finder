@@ -4,10 +4,12 @@ import axios from "../../axios";
 import requests from "../../Requests";
 import { useDispatch } from "react-redux";
 import { clickedTeam } from "../../features/teamSlice";
+import { useHistory } from 'react-router';
 
 function Hero({ TeamID }) {
   const dispatch = useDispatch()
   const [teams, setTeams] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     async function fectchData() {
@@ -41,7 +43,9 @@ function Hero({ TeamID }) {
         <h1 className="hero__title">NBA General Manager</h1>
         <div className="hero__buttons">
           <button className="hero__button">New Team</button>
-          <button className="hero__button">My Team</button>
+          <button 
+          onClick={() => history.push("/userteam")} 
+          className="hero__button">My Team</button>
         </div>
         <div className="hero__logo">
           {teams.map((team) => (

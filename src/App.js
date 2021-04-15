@@ -7,6 +7,7 @@ import LoginScreen from "./components/LoginScreen/LoginScreen";
 import { auth } from "./firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser } from "./features/userSlice";
+import UserTeam from "./components/UserTeam/UserTeam";
 
 
 function App() {
@@ -43,6 +44,9 @@ function App() {
             </Route>
             <Route exact path="/">
             <HomeScreen />
+            </Route>
+            <Route exact path="/userteam">
+            <UserTeam />
             </Route>
           </Switch>
         )}

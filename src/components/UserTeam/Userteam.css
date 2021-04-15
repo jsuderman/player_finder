@@ -1,0 +1,34 @@
+.userteam {
+    height: 100vh;
+    background-color: black;
+    color: white;
+}
+
+.userteam__body {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    text-align: center;
+    padding-top: 10%;
+    height: 25%;
+}
+
+.userteam__info {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.userteam__details {
+    width: 150px;
+    height: 150px;
+    text-align: center;
+}
+
+.userteam__details > img {
+    justify-content: center;
+    align-items: center;
+    
+}
