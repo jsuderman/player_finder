@@ -25,11 +25,10 @@ function LoginScreen() {
           <SignIn />
         ) : (
           <>
-            <h1>Description of the app</h1>
+            <h1>Build Your Ultimate NBA Team!</h1>
 
             <div className="loginScreen__input">
               <form>
-                <input type="email" placeholder="Email Address" />
                 <button
                   onClick={() => setSignIn(true)}
                   className="loginScreen__getStarted"
