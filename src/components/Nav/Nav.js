@@ -26,7 +26,7 @@ function Nav() {
                 <img
                     onClick={() => history.push("/")}
                     className="nav__logo"
-                    src="http://www.fromthebenchgames.com/nba-basketball-games/img/logoGrande.png?v=2"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7y1QX0jOOgQweRJIAMHTXyICUFccvFfu8ag&usqp=CAU"
                     alt="NBA GM"
                 />
                 <img
