@@ -42,7 +42,6 @@ function Hero({ TeamID }) {
       <div className="hero__contents">
         <h1 className="hero__title">NBA General Manager</h1>
         <div className="hero__buttons">
-          <button className="hero__button">New Team</button>
           <button 
           onClick={() => history.push("/userteam")} 
           className="hero__button">My Team</button>

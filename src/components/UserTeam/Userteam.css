@@ -15,6 +15,28 @@
     height: 25%;
 }
 
+.userteam__body > h1 {
+    padding-bottom: 10px;
+}
+
+.userteam__body > button {
+    display: flex;
+    width: 25%;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: center;
+    background-color: rgba(51, 51, 51, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.userteam__body > button:hover {
+    background-color: white;
+    color: black;
+}
+
 .userteam__info {
     display: flex;
     flex-direction: row;

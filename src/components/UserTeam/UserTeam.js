@@ -2,26 +2,15 @@ import React, { useState, useEffect } from "react";
 import Nav from "../Nav/Nav";
 import "./Userteam.css";
 import { firebase } from "../../firebase";
-import { v4 as uuidv4 } from "uuid";
+import { useHistory } from 'react-router';
+
 
 function UserTeam() {
   const [userPlayers, setUserPlayers] = useState([]);
+  const history = useHistory();
 
 
   const ref = firebase.firestore().collection("userTeam");
-
-
-//   function getUserPlayers() {
-//     ref.onSnapshot((snap) => {
-//         let items = [];
-//         snap.forEach((doc) => {
-//             items.push({...doc.data(), id: doc.id})
-//         });
-//         setUserPlayers(items)
-        
-//     })
-//     console.log(userPlayers)
-//   }
 
   useEffect(() => {
     const unsub = ref.onSnapshot((snap) => {
@@ -34,27 +23,7 @@ function UserTeam() {
     })
     
     return () => unsub();
-
-    //   getUserPlayers();
-    // const getPlayersfromDB = async () => {
-    //   const db = firebase.firestore();
-    //   const data = await db.collection("userTeam").get();
-    //   setUserPlayers(data.docs.map((doc) => doc.data()));
-      
-
-    //   return data;
-    // };
-    // getPlayersfromDB();
-    // console.log(userPlayers);
-  }, []);
-
-//   const deletePlayer = () => {
-//       ref.doc().delete().then(() => {
-//           console.log("deleted");
-//         }).catch((error) => {
-//         console.error("error", error);
-//         })
-//     }
+  },[]);
 
   function deletePlayer(userPlayer) {
       ref.doc(userPlayer.id).delete().catch((err) => {
@@ -67,6 +36,7 @@ function UserTeam() {
       <Nav />
       <div className="userteam__body">
         <h1>My Team</h1>
+        <button onClick={() => history.push("/")}>Back to Teams</button>
         <div className="userteam__info">
           {userPlayers.map((userPlayer) => (
             <div className="userteam__details">

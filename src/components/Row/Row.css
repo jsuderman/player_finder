@@ -62,4 +62,12 @@
     color: white;
     border: none;
     cursor: pointer;
+    outline: none;
+    border-radius: 0.2vw;
+}
+
+.row__button:hover {
+    color: black;
+    background-color: white;
+    transition: all 0.2s;
 }
